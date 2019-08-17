@@ -64,8 +64,7 @@ export default {
     },
     {
       name: 'body',
-      // type: 'bodyPortableText',
-      type: 'markdown',
+      type: 'bodyPortableText',
       title: 'Body',
       options: {
         minRows: 50
