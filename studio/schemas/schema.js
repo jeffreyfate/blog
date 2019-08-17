@@ -6,6 +6,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
 import author from './documents/author'
+import bio from './documents/bio'
 import category from './documents/category'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
@@ -14,6 +15,7 @@ import siteSettings from './documents/siteSettings'
 import bodyPortableText from './objects/bodyPortableText'
 import bioPortableText from './objects/bioPortableText'
 import excerptPortableText from './objects/excerptPortableText'
+import summaryPortableText from './objects/summaryPortableText'
 import mainImage from './objects/mainImage'
 import authorReference from './objects/authorReference'
 
@@ -27,6 +29,7 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     siteSettings,
+    bio,
     post,
     category,
     author,
@@ -34,7 +37,8 @@ export default createSchema({
     authorReference,
     bodyPortableText,
     bioPortableText,
-    excerptPortableText
+    excerptPortableText,
+    summaryPortableText
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

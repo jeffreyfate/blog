@@ -1,5 +1,24 @@
+<script context="module">
+	import blocksToHtml from '@sanity/block-content-to-html'
+  import client from '../sanityClient'
+	import serializers from '../components/serializers'
+	export async function preload({ params }) {
+    const filter = '*[_type == "bio"][0]'
+    const query = filter
+		const bio = await client.fetch(query).catch(err => this.error(500, err))
+    return { bio: {
+			...bio,
+      body: blocksToHtml({blocks: bio.summary, serializers, ...client.clientConfig })
+    } };
+	}
+</script>
+
+<script>
+	export let bio
+</script>
+
 <style>
-	h1, figure, p {
+	h3, figure, p {
 		text-align: center;
 		margin: 0 auto;
 	}
@@ -33,12 +52,12 @@
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Jeffrey Fate | Java Maestro</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<h3>{@html bio.body}</h3>
 
-<figure>
+<!-- <figure>
 	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="svelte" x="0px" y="0px" viewBox="0 0 519 139" style="enable-background:new 0 0 519 139;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#159497;}
@@ -59,4 +78,4 @@
 	<figcaption>HIGH FIVE!</figcaption>
 </figure>
 
-<p><strong>Go to <a href="/blog">/blog</a> to see content loaded from <a href="https://www.sanity.io">Sanity</a></strong></p>
+<p><strong>Go to <a href="/blog">/blog</a> to see content loaded from <a href="https://www.sanity.io">Sanity</a></strong></p> -->
