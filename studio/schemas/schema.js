@@ -9,6 +9,7 @@ import author from './documents/author'
 import bio from './documents/bio'
 import category from './documents/category'
 import post from './documents/post'
+import note from './documents/note'
 import siteSettings from './documents/siteSettings'
 
 // Object types
@@ -31,6 +32,7 @@ export default createSchema({
     siteSettings,
     bio,
     post,
+    note,
     category,
     author,
     mainImage,
