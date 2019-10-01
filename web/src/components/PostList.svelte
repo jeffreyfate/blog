@@ -2,7 +2,6 @@
   export let posts
 
   function formatDate(date) {
-    console.log("formatting", date)
     return new Date(date).toLocaleDateString()
 	}
 </script>

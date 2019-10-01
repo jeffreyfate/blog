@@ -1,11 +1,7 @@
 <script context="module">
-  console.log("module context")
   import client from '../../sanityClient'
 	export async function preload({ params, query }) {
-    console.log(params)
-    console.log(query)
     return client.fetch('*[_type == "post" && defined(slug.current) && publishedAt < now()]|order(publishedAt desc)').then(posts => {
-      console.log("fetch complete")
 			return { posts };
 		}).catch(err => this.error(500, err));
   }
